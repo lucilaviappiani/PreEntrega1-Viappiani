@@ -1,0 +1,13 @@
+.DevLogo{
+    height: 45px;
+}
+
+.NavBarContainer{
+    display: flex;
+    gap: 40px;
+}
+
+.NavBarList{
+    display: flex;
+    gap: 30px;
+}

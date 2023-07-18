@@ -1,0 +1,8 @@
+.CartWidget {
+  display: flex;
+  gap: 20px;
+}
+
+.CartImage{
+  height: 40px;
+}
