@@ -2,6 +2,7 @@
     display: flex;
     gap: 50px;
     font-size: 14px;
+    margin-left: 10px;
 }
 
 button {
@@ -14,6 +15,10 @@ button {
  text-decoration: none;
  font-family: inherit;
  font-size: 15px;
+}
+
+button.SubstractButton{
+font-size: 15.4px;
 }
 
 button.CounterButton {

@@ -10,4 +10,8 @@
 .NavBarList{
     display: flex;
     gap: 30px;
+    font-family: 'Righteous', cursive;
+    color: black;
+    font-size: 18px;
 }
+

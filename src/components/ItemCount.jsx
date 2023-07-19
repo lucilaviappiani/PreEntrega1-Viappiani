@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import Button from 'react-bootstrap/Button'
 
 const ItemCount = () => {
 
@@ -17,7 +16,7 @@ const restar=()=>{
 
   return (
     <div className='CountContainer'>
-        <button onClick={restar} className='CounterButton'>-</button>
+        <button onClick={restar} className='CounterButton SubstractButton'>-</button>
         <p>{contador}</p>
         <button onClick={sumar}  className='CounterButton'>+</button>
     </div>
