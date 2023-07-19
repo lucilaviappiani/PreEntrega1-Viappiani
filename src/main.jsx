@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
 import "./CartWidget.css"
 import "./NavBar.css"
+import "./ItemCount.css"
 
 {
   /* The following line can be included in your src/index.js or App.js file */
