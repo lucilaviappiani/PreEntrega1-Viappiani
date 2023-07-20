@@ -3,7 +3,7 @@ import CartWidget from './CartWidget';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import addToCartImage from '../media/dvlogo.png';
+import devlogo from '../media/dvlogo.png';
 
 
 const NavBar = () => {
@@ -11,7 +11,7 @@ const NavBar = () => {
     <div>
     <Navbar collapseOnSelect expand="lg" className="bg-body-tertiary">
       <Container className='NavBarContainer'>
-        <Navbar.Brand href="#home"><img className='DevLogo' src= {addToCartImage}/></Navbar.Brand>
+        <Navbar.Brand href="#home"><img className='DevLogo' src= {devlogo}/></Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto NavBarList">

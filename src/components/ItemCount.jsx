@@ -17,7 +17,7 @@ const restar=()=>{
   return (
     <div className='CountContainer'>
         <button onClick={restar} className='CounterButton SubstractButton'>-</button>
-        <p>{contador}</p>
+        <p className='CountNumber'>{contador}</p>
         <button onClick={sumar}  className='CounterButton'>+</button>
     </div>
   )

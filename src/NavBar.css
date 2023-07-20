@@ -10,7 +10,7 @@
 .NavBarList{
     display: flex;
     gap: 30px;
-    font-family: 'Righteous', cursive;
+    font-family: 'Poppins', sans-serif;
     color: black;
     font-size: 18px;
 }
