@@ -1,5 +1,5 @@
-import React from 'react'
-import addToCartImage from '../media/anadir-a-la-cesta.png';
+
+import addToCartImage from '../assets/anadir-a-la-cesta.png';
 
 const CartWidget = () => {
   return (

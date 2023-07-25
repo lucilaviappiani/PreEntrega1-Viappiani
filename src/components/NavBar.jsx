@@ -1,9 +1,9 @@
-import React from 'react'
+
 import CartWidget from './CartWidget';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import devlogo from '../media/dvlogo.png';
+import devlogo from '../assets/dvlogo.png';
 
 
 const NavBar = () => {

@@ -1,9 +1,9 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
-import "./CartWidget.css"
-import "./NavBar.css"
-import "./ItemCount.css"
+import "./styles/CartWidget.css"
+import "./styles/NavBar.css"
+import "./styles/ItemCount.css"
 
 {
   /* The following line can be included in your src/index.js or App.js file */
@@ -11,7 +11,7 @@ import "./ItemCount.css"
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
+  <>
     <App />
-  </React.StrictMode>,
+  </>,
 )
