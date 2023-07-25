@@ -1,8 +1,11 @@
+import Item from "./Item"
 
 
 const ItemList = () => {
   return (
-    <div>ItemList</div>
+    <div>
+        <Item/>
+    </div>
   )
 }
 
