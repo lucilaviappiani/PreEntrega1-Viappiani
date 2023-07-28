@@ -1,10 +1,20 @@
 import Item from "./Item"
 
 
-const ItemList = () => {
+const ItemList = ({productos}) => {
   return (
-    <div>
-        <Item/>
+    <div className="ItemListContainer">
+      {productos.map((p) => {
+        return(
+        <Item
+        key= {p.id}
+        name= {p.nombre}
+        description= {p.description}
+        stock={p.stock}
+        />
+        )
+      })
+    }
     </div>
   )
 }

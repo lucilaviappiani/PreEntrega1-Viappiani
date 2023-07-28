@@ -4,6 +4,8 @@ import App from './App.jsx'
 import "./styles/CartWidget.css"
 import "./styles/NavBar.css"
 import "./styles/ItemCount.css"
+import "./styles/ItemListContainer.css"
+import "./styles/ItemList.css"
 
 {
   /* The following line can be included in your src/index.js or App.js file */
