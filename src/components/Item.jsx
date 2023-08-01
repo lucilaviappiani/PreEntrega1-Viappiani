@@ -1,17 +1,14 @@
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
-import ItemCount from './ItemCount';
 
-const Item = ({description, name,}) => {
+const Item = ({description, name, img,}) => {
   return (
-    <Card style={{ width: '18rem'}}>
-    <Card.Img variant="top"/>
+    <Card className= "ItemCard" style={{ width: '18rem'}}>
+    <img src= {img}/>
     <Card.Body>
       <Card.Title>{name}</Card.Title>
       <Card.Text>{description}</Card.Text>    
-      <ItemCount />
-      <Button variant="primary">Go somewhere</Button>
-  
+      <Button variant="" className='DetailButton'>View more</Button>
     </Card.Body>
   </Card>
   )
