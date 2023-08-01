@@ -1,10 +1,10 @@
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 
-const Item = ({description, name, img,}) => {
+const Item = ({description, name, cardImage,}) => {
   return (
     <Card className= "ItemCard" style={{ width: '18rem'}}>
-    <img src= {img}/>
+    <Card.Img variant="top" src= {cardImage} className='CardImage'/>
     <Card.Body>
       <Card.Title>{name}</Card.Title>
       <Card.Text>{description}</Card.Text>    

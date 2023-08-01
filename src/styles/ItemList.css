@@ -1,4 +1,6 @@
 .ItemListContainer{
     display: flex;
     flex-wrap: wrap;
+    gap: 70px;
+    padding: 50px;
 }

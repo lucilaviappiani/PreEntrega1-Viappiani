@@ -1,9 +1,9 @@
 
-  .ItemCard{
-    margin: 30px;
-  }
-  
-  
+
+.CardImage{
+  height: 14rem;
+}
+
   button.DetailButton {
     font-size: 15.4px;
     font-weight: 900;
