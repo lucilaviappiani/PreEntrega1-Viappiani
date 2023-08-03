@@ -2,7 +2,6 @@ import React from 'react';
 import { useParams } from 'react-router-dom'; 
 import ItemCount from './ItemCount';
 import Card from 'react-bootstrap/Card';
-import AddToCart from './AddToCart';
 
 
 const ItemDetail = ({ productos }) => {
@@ -19,7 +18,7 @@ const ItemDetail = ({ productos }) => {
                 <Card.Title>{p.nombre}</Card.Title>
                 <Card.Text>{p.description}</Card.Text>
                 <ItemCount/>
-                <AddToCart/>
+                <button  className='CounterButton '> Add to cart</button>
               </Card.Body>
             </Card>
           </div>

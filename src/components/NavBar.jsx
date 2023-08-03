@@ -22,7 +22,6 @@ const NavBar = () => {
             <Link className='navItem' to={'/category/mobileapp'}>Mobile App</Link>
             <Link className='navItem' to={'/category/ecommerce'}>E-commerce</Link>
             <Link className='navItem' to={'/category/support'}>Support/maintenance</Link>
-            <Link className='navItem' to={'/products'}>All products</Link>
           </Nav>
         </Navbar.Collapse>
         <CartWidget />
