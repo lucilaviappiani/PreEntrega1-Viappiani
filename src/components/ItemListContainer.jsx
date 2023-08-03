@@ -3,14 +3,16 @@ import website from "../assets/website.jpg";
 import mobileapp from "../assets/mobileapp.jpg";
 import landing from "../assets/landing.png";
 import ecommerce from "../assets/ecommerce.jpg";
+import { useParams  } from "react-router-dom";
 
 const ItemListContainer = () => {
+  const { category } = useParams()
 
   const productos = [
-    {id: 485316, nombre: "product A" , description: "descripción producto A" ,stock: 2, img: website  },
-    {id: 986541, nombre: "product B", description: "descripción producto B",stock: 2, img: mobileapp},
-    {id: 658954, nombre: "product C", description:"descripción producto C" ,stock: 3, img: landing},
-    {id: 625354, nombre: "product D", description:"descripción producto D" ,stock: 3, img: ecommerce },
+    {id: 1, nombre: "product A" , description: "descripción producto A" ,stock: 2, img: website, category: "website"  },
+    {id: 2, nombre: "product B", description: "descripción producto B",stock: 2, img: mobileapp, category: "mobileapp"},
+    {id: 3, nombre: "product C", description:"descripción producto C" ,stock: 3, img: landing, category:"ecommerce"},
+    {id: 4, nombre: "product D", description:"descripción producto D" ,stock: 3, img: ecommerce, category:"support" },
 
   ]
   
@@ -20,7 +22,7 @@ const ItemListContainer = () => {
         reject (new Error("no hay datos"))
       }
       setTimeout(()=> {
-        resolve(datos)
+        resolve(productos)
       },2000)
     })
   }
@@ -36,9 +38,11 @@ const ItemListContainer = () => {
   
   fetchingData()
 
+  const filteredProducts = productos.filter((producto)=> producto.category === category)
+
   return (
-    <div className="ItemListContainerBody">
-        <ItemList productos={productos}/>
+    <div className="ItemList">
+        <ItemList productos={filteredProducts}/>
     </div>
   )
 }

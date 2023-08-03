@@ -4,6 +4,7 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import devlogo from '../assets/dvlogo.png';
+import { Link } from 'react-router-dom';
 
 
 const NavBar = () => {
@@ -11,14 +12,16 @@ const NavBar = () => {
     <div>
     <Navbar collapseOnSelect expand="lg" className="bg-body-tertiary">
       <Container className='NavBarContainer'>
-        <Navbar.Brand href="#home"><img className='DevLogo' src= {devlogo}/></Navbar.Brand>
+        <Link to={"/"}>
+          <img className='DevLogo' src= {devlogo}/>
+        </Link>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto NavBarList">
-            <Nav.Link href="#website">Website</Nav.Link>
-            <Nav.Link href="#mobileapp">Mobile App</Nav.Link>
-            <Nav.Link href="#ecommerce">E-commerce</Nav.Link>
-            <Nav.Link href="#support">Support/maintenance</Nav.Link>
+            <Link to={`/category/${"website"}`}>Website</Link>
+            <Link to={`/category/${"mobileapp"}`}>Mobile App</Link>
+            <Link to={`/category/${"ecommerce"}`}>E-commerce</Link>
+            <Link to={`/category/${"support"}`}>Support/maintenance</Link>
           </Nav>
         </Navbar.Collapse>
         <CartWidget />
