@@ -18,10 +18,11 @@ const NavBar = () => {
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto NavBarList">
-            <Link to={`/category/${"website"}`}>Website</Link>
-            <Link to={`/category/${"mobileapp"}`}>Mobile App</Link>
-            <Link to={`/category/${"ecommerce"}`}>E-commerce</Link>
-            <Link to={`/category/${"support"}`}>Support/maintenance</Link>
+            <Link className='navItem' to={'/category/website'}>Website</Link>
+            <Link className='navItem' to={'/category/mobileapp'}>Mobile App</Link>
+            <Link className='navItem' to={'/category/ecommerce'}>E-commerce</Link>
+            <Link className='navItem' to={'/category/support'}>Support/maintenance</Link>
+            <Link className='navItem' to={'/products'}>All products</Link>
           </Nav>
         </Navbar.Collapse>
         <CartWidget />

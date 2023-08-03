@@ -13,5 +13,13 @@
     font-family: 'Poppins', sans-serif;
     color: black;
     font-size: 18px;
+    text-decoration: none;
+}
+.navItem{
+    color: #000;
+    text-decoration: none;
 }
 
+.navItem:visited{ 
+color: #000;
+}
