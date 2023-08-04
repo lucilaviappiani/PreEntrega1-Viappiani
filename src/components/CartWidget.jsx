@@ -6,9 +6,9 @@ const CartWidget = () => {
   return (
     <div className='CartWidget'>
       <Link to={"/cart"}>
-      <img className='CartImage' src= {addToCartImage}/>
+        <img className='CartImage' src= {addToCartImage}/>
       </Link>
-        <p>2</p>
+      <p>2</p>
     </div>
   )
 }

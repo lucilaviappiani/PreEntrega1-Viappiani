@@ -7,6 +7,7 @@ import "./styles/ItemCount.css"
 import "./styles/ItemListContainer.css"
 import "./styles/ItemList.css"
 import "./styles/Item.css"
+import "./styles/ItemDetail.css"
 {
   /* The following line can be included in your src/index.js or App.js file */
 }
