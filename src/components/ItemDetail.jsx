@@ -1,14 +1,33 @@
-import React from 'react';
-import { useParams } from 'react-router-dom'; 
+import React, { useContext, useState } from 'react';
+import { Link, useParams } from 'react-router-dom'; 
 import ItemCount from './ItemCount';
 import Card from 'react-bootstrap/Card';
-import { Button } from 'react-bootstrap';
 import { Carousel} from 'react-bootstrap';
-
+import { CartContext } from '../context/CartContext';
 
 
 //recibe los productos por props
 const ItemDetail = ({ productos }) => {
+
+  //estado donde se almacenará la cantidad agregada de ese producto
+  const [quantityAdded, setQuantityAdded] = useState(0)
+
+  const {addItem} = useContext(CartContext)
+  const handleOnAdd = (quantity) => {
+    setQuantityAdded(quantity)
+
+    const { id, nombre, description } = filteredProducts[0];
+
+
+    const item = {
+      id, nombre, description
+    }
+
+    addItem(item, quantity)
+  }
+
+
+
   //recibe los parámetros del producto por useParams
   const { id } = useParams()
   //hace un fitlrado por id 
@@ -36,8 +55,13 @@ const ItemDetail = ({ productos }) => {
               </Carousel>
                 <Card.Title>{p.nombre}</Card.Title>
                 <Card.Text>{p.description}</Card.Text>
-                <ItemCount/>
-                <Button variant="" className='CounterButton AddToCart'> Add to cart</Button>
+                <div>
+                  {
+                    quantityAdded > 0 ? (<Link to={"/cart"}> <button className='CounterButton'> ¡Product added! Go to cart</button></Link>)
+                  : (<ItemCount initial={1} onAdd={handleOnAdd} />)
+                  }
+                
+                </div>
               </Card.Body>
             </Card>
           </div>

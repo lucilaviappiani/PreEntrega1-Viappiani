@@ -34,7 +34,6 @@ const ItemListContainer = () => {
   async function fetchingData() {
     try{
       const productosFetched = await getProductos()
-      console.log(productosFetched)
     } catch (error) {
       console.log(error)
     }
