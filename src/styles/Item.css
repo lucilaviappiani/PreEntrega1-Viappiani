@@ -1,15 +1,28 @@
 
 
 .CardImage{
-  height: 14rem;
+  height: 270px;
+  width: 420px;
 }
 
 .CardBody{
+  height: 15rem;
+  width: 25rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 14px;
+}
+
+.ItemTitle{
+  font-size: 20px;
+}
+
+.ItemDescription{
+  text-align: center;
+  font-family: 'Urbanist', sans-serif;
+  font-size: 1.22rem;
 }
 
   button.DetailButton {

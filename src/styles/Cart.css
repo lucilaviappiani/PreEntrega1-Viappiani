@@ -1,0 +1,9 @@
+.CartItemContainer{
+    display: flex;
+    gap:  10rem;
+}
+
+.CartItemBody{
+    display: flex;
+    gap: 5rem;
+}

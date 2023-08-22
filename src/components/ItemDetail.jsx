@@ -16,11 +16,11 @@ const ItemDetail = ({ productos }) => {
   const handleOnAdd = (quantity) => {
     setQuantityAdded(quantity)
 
-    const { id, nombre, description } = filteredProducts[0];
+    const { id, nombre, description, price } = filteredProducts[0];
 
 
     const item = {
-      id, nombre, description
+      id, nombre, description, price
     }
 
     addItem(item, quantity)
@@ -54,7 +54,8 @@ const ItemDetail = ({ productos }) => {
               </Carousel.Item>
               </Carousel>
                 <Card.Title>{p.nombre}</Card.Title>
-                <Card.Text>{p.description}</Card.Text>
+                <Card.Text>{p.detail}</Card.Text>
+                <Card.Text><h4> US$ {p.price}</h4></Card.Text>
                 <div>
                   {
                     quantityAdded > 0 ? (<Link to={"/cart"}> <button className='CounterButton'> ¡Product added! Go to cart</button></Link>)

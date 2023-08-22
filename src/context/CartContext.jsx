@@ -17,7 +17,6 @@ export const CartContextProvider = ({children}) => {
             console.error("already in cart")
         }
     }
-
     const removeItem = (itemId) => {
         const cartUpdated = cart.filter(prod => prod.id !== itemId)
         setCart(cartUpdated)
@@ -31,11 +30,13 @@ export const CartContextProvider = ({children}) => {
         return cart.some(prod => prod.id === itemId)
     }
 
+    const totalQuantity = cart.reduce((total, product) => total + product.quantity, 0);
+
 
 
     return(
         //Value son los valores que el provider le pasa a sus hijos
-        <CartContext.Provider value={{cart, addItem, removeItem, clearCart}}>
+        <CartContext.Provider value={{cart, addItem, removeItem, clearCart, totalQuantity}}>
             {children} {/*A quien le estoy pasando la información*/}
         </CartContext.Provider>
 
