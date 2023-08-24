@@ -8,7 +8,6 @@ export const CartContext= createContext()
 export const CartContextProvider = ({children}) => {
 //cart es un array vacío de productos agregados    
     const [cart, setCart] = useState([])
-    console.log(cart)
 
     const addItem = (item, quantity) => {
         if (!isInCart(item.id)){

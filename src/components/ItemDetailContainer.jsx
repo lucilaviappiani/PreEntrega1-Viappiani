@@ -1,19 +1,22 @@
 import React from 'react';
 import { useEffect, useState } from 'react';
-import { collection, getDocs, getFirestore } from 'firebase/firestore'
+import { useParams } from 'react-router-dom';
+import { doc, getDoc, getFirestore } from 'firebase/firestore'
 import ItemDetail from './ItemDetail';
 
 const ItemDetailContainer = () => {
     //recibe los parámetros del producto por useParams
-    const [productos, setProductos] = useState([])
-  console.log(productos)
+  const { id } = useParams()
+  const [productos, setProductos] = useState([])
 
   useEffect(() => {
       const db= getFirestore()
-      const itemColection = collection(db, "SERVICES")
-      getDocs(itemColection).then((snapshot) =>{
-          const docs = snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
-          setProductos(docs)
+      const oneItem = doc(db, "SERVICES", `${id}`)
+      getDoc(oneItem).then((snapshot) =>{
+        if(snapshot.exists()) {
+          const docs = snapshot.data();
+          setProductos({id: snapshot.id, ...docs})
+        }
       })
       }, [])
 

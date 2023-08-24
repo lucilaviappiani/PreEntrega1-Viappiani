@@ -8,7 +8,6 @@ const ItemListContainer = () => {
 
   
   const [productos, setProductos] = useState([])
-  console.log(productos)
 
   useEffect(() => {
       const db= getFirestore()
@@ -17,7 +16,6 @@ const ItemListContainer = () => {
           const docs = snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
           setProductos(docs)
       })
-  
       }, [])
 
 

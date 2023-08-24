@@ -16,7 +16,7 @@ const ItemDetail = ({ productos }) => {
   const handleOnAdd = (quantity) => {
     setQuantityAdded(quantity)
 
-    const { id, nombre, description, price } = filteredProducts[0];
+    const { id, nombre, description, price } = productos;
 
 
     const item = {
@@ -27,47 +27,35 @@ const ItemDetail = ({ productos }) => {
   }
 
 
-
-  //recibe los parámetros del producto por useParams
-  const { id } = useParams()
-  //hace un fitlrado por id 
-  const filteredProducts = productos.filter((producto) => producto.id == id)
-
   //los mapea. Por cada iteración renderiza un nuevo componente.
   return (
     <div className="ItemListContainer">
-      {filteredProducts.map((p) => {
-        return (
-          <div key={p.id}>
-
+          <div key={productos.id}>
             <Card className="ItemCard" style={{ width: '30rem' }}>
               <Card.Body className='CardBody'>
               <Carousel>
               <Carousel.Item >
-                <img src={p.img} className="CarouselImg" text="First slide" />
+                <img src={productos.img} className="CarouselImg" text="First slide" />
               </Carousel.Item>
               <Carousel.Item >
-                <img src={p.img2} className="CarouselImg" text="First Second slide" />
+                <img src={productos.img2} className="CarouselImg" text="First Second slide" />
               </Carousel.Item>
               <Carousel.Item >
-                <img src={p.img3} className="CarouselImg" text="First Second slide" />
+                <img src={productos.img3} className="CarouselImg" text="First Second slide" />
               </Carousel.Item>
               </Carousel>
-                <Card.Title>{p.nombre}</Card.Title>
-                <Card.Text>{p.detail}</Card.Text>
-                <Card.Text><h4> US$ {p.price}</h4></Card.Text>
+                <Card.Title>{productos.nombre}</Card.Title>
+                <Card.Text>{productos.detail}</Card.Text>
+                <Card.Text> US$ {productos.price}</Card.Text>
                 <div>
                   {
                     quantityAdded > 0 ? (<Link to={"/cart"}> <button className='CounterButton'> ¡Product added! Go to cart</button></Link>)
                   : (<ItemCount initial={1} onAdd={handleOnAdd} />)
                   }
-                
                 </div>
               </Card.Body>
             </Card>
           </div>
-        )
-      })}
     </div>
   )
 }

@@ -4,6 +4,10 @@ import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
 import { useState } from 'react';
+import { collection, addDoc, getFirestore } from "firebase/firestore";
+import { CartContext } from '../context/CartContext';
+import { useContext } from 'react';
+
 
 const Checkout = () => {
   const [name, setName] = useState("")
@@ -11,16 +15,44 @@ const Checkout = () => {
   const [email, setEmail] = useState("")
   const [phone, setPhone] = useState("")
   const [paymentMethod, setPaymentMethod] = useState("Credit card"); // Por defecto, seleccionamos el primer método de pago
+  const [orderId, setOrderId] = useState(null)
+  const {cart} = useContext(CartContext)
 
 
-  const handleSubmit = (e) => {
+  const db= getFirestore()
+
+
+ const handleSubmit = (e) => {
     e.preventDefault()
-    name === ""? alert("please complete your name") : console.log("Name:", name);
-    lastname === ""? alert("please complete your lastname") : console.log("Last name:", lastname);
-    email === ""? alert("please complete your email") : console.log("email:",email);
-    phone === ""? alert("please complete your phone") : console.log("Phone:",phone);
-    console.log("Payment method:", paymentMethod);
+    addDoc(orderCollection, order).then(({id}) =>
+      setOrderId(id))
+
+      sendOrder()
+
+
+
     
+  }
+
+  const order = {
+    name,
+    lastname,
+    email,
+    phone,
+    paymentMethod
+  }
+
+  const orderCollection = collection(db, "orden")
+
+  const sendOrder = () => {
+    const order = {
+      buyer: {name: {name}, lastname: {lastname}, email: {email}, phone:{phone}, paymentMethod: {paymentMethod}},
+      items: {cart},
+      total: {},
+    }
+    const orderCollection = collection(db, "orders")
+
+    addDoc(orderCollection, order).then(({id}) => setOrderId(id))
   }
 
   return (
@@ -59,11 +91,10 @@ const Checkout = () => {
       <option value="Debit card">Debit card</option>
       <option value="PayPal">PayPal</option>
     </Form.Select>
-
-    
-
-    </Row>
+    </Row>  
+     <p> You'll be able to see your order number here : {orderId} </p>
     <Button variant="" className='CounterButton ' type="submit" > Submit</Button>
+ 
 
   </Form>
   )
