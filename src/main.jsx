@@ -9,6 +9,7 @@ import "./styles/ItemList.css"
 import "./styles/Item.css"
 import "./styles/ItemDetail.css"
 import "./styles/Cart.css"
+import "./styles/Home.css"
 
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";

@@ -1,13 +1,13 @@
 
 
 .CardImage{
-  height: 270px;
-  width: 420px;
+  height: 15rem;
+  width: 24rem;
 }
 
 .CardBody{
-  height: 15rem;
-  width: 25rem;
+  height: 18rem;
+  width: 24rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -15,6 +15,13 @@
   gap: 14px;
 }
 
+.ItemTitle{
+  font-family: 'Urbanist', sans-serif;
+  font-size: 1.6rem;
+  text-transform: uppercase;
+  text-align: center;
+  font-weight: 900;
+}
 .ItemDescription{
   text-align: center;
   font-family: 'Urbanist', sans-serif;

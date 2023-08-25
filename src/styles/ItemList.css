@@ -1,6 +1,9 @@
 .ItemListContainer{
     display: flex;
     flex-wrap: wrap;
-    gap: 70px;
-    padding: 50px;
+    align-items: center;
+    justify-content: center;
+    column-gap: 70px;
+    row-gap: 40px;
+    padding-top:50px;
 }

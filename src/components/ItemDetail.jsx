@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { Link, useParams } from 'react-router-dom'; 
+import { Link } from 'react-router-dom'; 
 import ItemCount from './ItemCount';
 import Card from 'react-bootstrap/Card';
 import { Carousel} from 'react-bootstrap';

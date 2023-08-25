@@ -7,6 +7,7 @@ import { useState } from 'react';
 import { collection, addDoc, getFirestore } from "firebase/firestore";
 import { CartContext } from '../context/CartContext';
 import { useContext } from 'react';
+import { Link } from 'react-router-dom';
 
 
 const Checkout = () => {
@@ -17,6 +18,9 @@ const Checkout = () => {
   const [paymentMethod, setPaymentMethod] = useState("Credit card"); // Por defecto, seleccionamos el primer método de pago
   const [orderId, setOrderId] = useState(null)
   const {cart} = useContext(CartContext)
+  const [orderSubmitted, setOrderSubmitted] = useState(false);
+  const [formVisible, setFormVisible] = useState(true);
+
 
 
   const db= getFirestore()
@@ -25,11 +29,11 @@ const Checkout = () => {
  const handleSubmit = (e) => {
     e.preventDefault()
     addDoc(orderCollection, order).then(({id}) =>
-      setOrderId(id))
+      setOrderId(id), 
+      setOrderSubmitted(true),
+      setFormVisible(false))
 
       sendOrder()
-
-
 
     
   }
@@ -56,21 +60,20 @@ const Checkout = () => {
   }
 
   return (
-    <Form onSubmit={handleSubmit}>
-    <Row className="mb-3">
-      <Form.Group as={Col} controlId="formGridEmail">
-        <Form.Label>Name</Form.Label>
-        <Form.Control type="text"  onChange={(e)=> setName(e.target.value)}/>
-      </Form.Group>
-
-      <Form.Group as={Col} controlId="formGridEmail">
-        <Form.Label> Last name</Form.Label>
-        <Form.Control type="text"  onChange={(e)=> setLastname(e.target.value)} />
-      </Form.Group>
-
-    </Row>
-
-    <Row className="mb-3">
+    <div>
+      {formVisible && (
+        <Form onSubmit={handleSubmit}>
+          <Row className="mb-3">
+            <Form.Group as={Col} controlId="formGridName">
+              <Form.Label>Name</Form.Label>
+              <Form.Control type="text" onChange={(e) => setName(e.target.value)} />
+            </Form.Group>
+            <Form.Group as={Col} controlId="formGridLastname">
+              <Form.Label>Last name</Form.Label>
+              <Form.Control type="text" onChange={(e) => setLastname(e.target.value)} />
+            </Form.Group>
+          </Row>
+          <Row className="mb-3">
 
       <Form.Group as={Col} controlId="formGridEmail">
         <Form.Label>Email</Form.Label>
@@ -91,13 +94,22 @@ const Checkout = () => {
       <option value="Debit card">Debit card</option>
       <option value="PayPal">PayPal</option>
     </Form.Select>
-    </Row>  
-     <p> You'll be able to see your order number here : {orderId} </p>
-    <Button variant="" className='CounterButton ' type="submit" > Submit</Button>
- 
+    </Row>
+          <Button variant="" className="CounterButton" type="submit">
+            Submit
+          </Button>
+        </Form>
+      )}
 
-  </Form>
-  )
+      {orderSubmitted && (
+        <>
+        <h5> Order sent!</h5>
+        <p>Your order number is: {orderId}</p>
+        <Link to={"/Products"}> <Button variant="" className="CounterButton"> Back to home</Button> </Link>
+        </>
+      )}
+    </div>
+  );
 }
 
-export default Checkout
+export default Checkout;

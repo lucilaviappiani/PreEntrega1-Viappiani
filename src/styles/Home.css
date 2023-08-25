@@ -1,0 +1,21 @@
+
+.homeBody{
+    height: 645px;
+    background-image: url("../assets/homeImage.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0 4rem 0 4rem;
+}
+
+.homeTitle{
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+    font-size: 4rem;
+    color: white;
+    font-weight: 900;
+
+}

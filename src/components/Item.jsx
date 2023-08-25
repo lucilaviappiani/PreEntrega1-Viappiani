@@ -9,7 +9,7 @@ const Item = ({description, name, img, id}) => {
     <Card className= "ItemCard">
     <img variant="top" src={img} className='CardImage'/>
     <Card.Body className='CardBody'>
-      <Card.Title className='ItemTitle'>{name}</Card.Title>
+      <Card.Text className='ItemTitle'>{name}</Card.Text>
       <Card.Text className='ItemDescription'>{description}</Card.Text>
       <Link to={`/item/${id}`}>{/*al presionar botón de view more nos direcciona a los detalles del producto*/}
         <Button variant="" className='DetailButton'>View more</Button>
