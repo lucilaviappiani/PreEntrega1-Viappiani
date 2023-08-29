@@ -29,34 +29,37 @@ const ItemDetail = ({ productos }) => {
 
   //los mapea. Por cada iteración renderiza un nuevo componente.
   return (
-    <div className="ItemListContainer">
-          <div key={productos.id}>
-            <Card className="ItemCard" style={{ width: '30rem' }}>
-              <Card.Body className='CardBody'>
-              <Carousel>
-              <Carousel.Item >
-                <img src={productos.img} className="CarouselImg" text="First slide" />
-              </Carousel.Item>
-              <Carousel.Item >
-                <img src={productos.img2} className="CarouselImg" text="First Second slide" />
-              </Carousel.Item>
-              <Carousel.Item >
-                <img src={productos.img3} className="CarouselImg" text="First Second slide" />
-              </Carousel.Item>
-              </Carousel>
-                <Card.Title>{productos.nombre}</Card.Title>
-                <Card.Text>{productos.detail}</Card.Text>
-                <Card.Text> US$ {productos.price}</Card.Text>
-                <div>
-                  {
-                    quantityAdded > 0 ? (<Link to={"/cart"}> <button className='CounterButton'> ¡Product added! Go to cart</button></Link>)
+    <>
+      <div key={productos.id} className='itemDetailCard'>
+
+        <Carousel>
+          <Carousel.Item >
+            <img src={productos.img} className="CarouselImg" text="First slide" />
+          </Carousel.Item>
+          <Carousel.Item >
+            <img src={productos.img2} className="CarouselImg" text="First Second slide" />
+          </Carousel.Item>
+          <Carousel.Item >
+            <img src={productos.img3} className="CarouselImg" text="First Second slide" />
+          </Carousel.Item>
+        </Carousel>
+        <Card>
+          <Card.Body>
+            <div className='itemDetailBody'>
+            <Card.Text className='ItemTitle'>{productos.nombre}</Card.Text>
+            <Card.Text className='ItemDescription'>{productos.detail}</Card.Text>
+            <Card.Text className='ItemTitle'> US$ {productos.price}</Card.Text>
+            <div>
+              {
+                quantityAdded > 0 ? (<Link to={"/cart"}> <button className='CounterButton'> ¡Product added! Go to cart</button></Link>)
                   : (<ItemCount initial={1} onAdd={handleOnAdd} />)
-                  }
-                </div>
-              </Card.Body>
-            </Card>
-          </div>
-    </div>
+              }
+            </div>
+            </div>
+          </Card.Body>
+        </Card>
+      </div>
+    </>
   )
 }
 

@@ -3,6 +3,22 @@
 }
 
 .CarouselImg{
-    width: 30rem;
-    height: 20rem;
+    width: 650px;
+    height: 500px;
+}
+
+.itemDetailCard{
+    margin-top: 60px;
+    display: flex;
+    flex-direction: row;
+}
+
+.itemDetailBody{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    row-gap: 1.1rem;
+    padding: 1rem;
+    border: none;
 }

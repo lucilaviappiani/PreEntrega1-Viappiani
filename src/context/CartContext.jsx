@@ -1,5 +1,5 @@
 
-import { createContext, useState } from 'react'
+import { createContext, useState, useEffect} from 'react';
 
 export const CartContext= createContext()
 
@@ -7,7 +7,17 @@ export const CartContext= createContext()
 //children es a quien le estoy pasando la información
 export const CartContextProvider = ({children}) => {
 //cart es un array vacío de productos agregados    
-    const [cart, setCart] = useState([])
+    const [cart, setCart] = useState([]);
+    const [totalPrice, setTotalPrice] = useState(0);
+
+    useEffect(() => {
+        // Calcular el precio total cada vez que el carrito cambie
+        const newTotalPrice = cart.reduce(
+          (total, product) => total + product.price * product.quantity,
+          0
+        );
+        setTotalPrice(newTotalPrice);
+      }, [cart]);
 
     const addItem = (item, quantity) => {
         if (!isInCart(item.id)){
@@ -35,7 +45,7 @@ export const CartContextProvider = ({children}) => {
 
     return(
         //Value son los valores que el provider le pasa a sus hijos
-        <CartContext.Provider value={{cart, addItem, removeItem, clearCart, totalQuantity}}>
+        <CartContext.Provider value={{cart, addItem, removeItem, clearCart, totalQuantity, totalPrice}}>
             {children} {/*A quien le estoy pasando la información*/}
         </CartContext.Provider>
 

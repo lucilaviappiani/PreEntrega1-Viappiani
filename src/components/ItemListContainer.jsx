@@ -1,22 +1,31 @@
 import ItemList from "./ItemList";
 import { useParams  } from "react-router-dom";
-import { useState, useEffect } from 'react'
-import { collection, getDocs, getFirestore } from 'firebase/firestore'
+import { useState, useEffect } from 'react';
+import { collection, getDocs, getFirestore } from 'firebase/firestore';
+import Loading from "./Loading";
 
 const ItemListContainer = () => {
   const { category } = useParams()
 
-  
+  const [loading, setLoading] = useState(true)
   const [productos, setProductos] = useState([])
 
   useEffect(() => {
+    setTimeout(()=> {
       const db= getFirestore()
       const itemColection = collection(db, "SERVICES")
       getDocs(itemColection).then((snapshot) =>{
           const docs = snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
           setProductos(docs)
+          setLoading(false)
       })
+    },1000)
+      
       }, [])
+
+  if(loading){
+    return <Loading/>
+  }
 
 
   //filtro productos por categoría

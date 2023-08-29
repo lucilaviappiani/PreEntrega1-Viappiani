@@ -5,11 +5,18 @@
 
 .CountContainer{
     display: flex;
-    gap: 50px;
+    gap: 60px;
     font-size: 14px;
     margin-left: 10px;
 }
 
+.countBody{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    row-gap: 1.1rem;
+}
 
 button {
  position: relative;

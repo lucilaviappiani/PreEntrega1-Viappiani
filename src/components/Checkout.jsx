@@ -14,6 +14,7 @@ const Checkout = () => {
   const [name, setName] = useState("")
   const [lastname, setLastname] = useState("")
   const [email, setEmail] = useState("")
+  const [emailConfirmation, setEmailConfirmation] = useState("")
   const [phone, setPhone] = useState("")
   const [paymentMethod, setPaymentMethod] = useState("Credit card"); // Por defecto, seleccionamos el primer método de pago
   const [orderId, setOrderId] = useState(null)
@@ -42,6 +43,7 @@ const Checkout = () => {
     name,
     lastname,
     email,
+    emailConfirmation,
     phone,
     paymentMethod
   }
@@ -50,7 +52,7 @@ const Checkout = () => {
 
   const sendOrder = () => {
     const order = {
-      buyer: {name: {name}, lastname: {lastname}, email: {email}, phone:{phone}, paymentMethod: {paymentMethod}},
+      buyer: {name: {name}, lastname: {lastname}, email: {email}, emailConfirmation: {emailConfirmation},phone:{phone}, paymentMethod: {paymentMethod}},
       items: {cart},
       total: {},
     }
@@ -80,7 +82,12 @@ const Checkout = () => {
         <Form.Control type="email" placeholder="youremail@hotmail.com" onChange={(e)=> setEmail(e.target.value)} />
       </Form.Group>
 
-      <Form.Group as={Col} controlId="formGridEmail">
+      <Form.Group as={Col} controlId="formGridEmailConfirmation">
+        <Form.Label>Email Confirmation</Form.Label>
+        <Form.Control type="email" placeholder="youremail@hotmail.com" onChange={(e)=> setEmailConfirmation(e.target.value)} />
+      </Form.Group>
+
+      <Form.Group as={Col} controlId="formGridPhone">
         <Form.Label>Phone number</Form.Label>
         <Form.Control type="tel" placeholder=" 54 9 11523658" onChange={(e)=> setPhone(e.target.value)}/>
       </Form.Group>

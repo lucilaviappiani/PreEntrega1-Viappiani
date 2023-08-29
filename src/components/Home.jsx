@@ -1,7 +1,6 @@
-import React from 'react'
-
 
 const Home = () => {
+
   return (
     <div className='homeBody'>
       <h1 className='homeTitle'>Welcome to Develover</h1>

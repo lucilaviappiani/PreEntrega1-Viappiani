@@ -1,22 +1,19 @@
-import { useContext } from "react"
-import { CartContext } from "../context/CartContext"
-import { Button } from "react-bootstrap"
-import { Link } from "react-router-dom"
+import { useContext } from "react";
+import { CartContext } from "../context/CartContext";
+import { Button } from "react-bootstrap";
+import { Link } from "react-router-dom";
+
 
 const Cart = () => {
 
   //le paso al componente las variables que quiero que consuma
-  const {cart, clearCart, removeItem, totalQuantity, total} = useContext(CartContext)
+  const {cart, clearCart, removeItem, totalPrice} = useContext(CartContext)
 
     if (cart.length === 0) {
       return (
         <div>
-          <p>El carrito está vacío.</p>
-          <Link to="/Checkout">
-            <Button variant="" className="CounterButton">
-              Checkout
-            </Button>
-          </Link>
+          <p>The cart is empty. Look at our products and add the ones you like the most to your cart</p>
+          <Link to="/products"> See products </Link>
         </div>
       );
     }
@@ -39,6 +36,7 @@ const Cart = () => {
         <Button variant="warning" onClick={clearCart}>
           Limpiar Carrito
         </Button>
+        <h3>Total Price: US${totalPrice}</h3>
         <Link to="/Checkout">
           <Button variant="" className="CounterButton">
             Checkout

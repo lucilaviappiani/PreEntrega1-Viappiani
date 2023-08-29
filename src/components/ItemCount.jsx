@@ -16,12 +16,14 @@ const restar=()=>{
 
   return (
     <>
+    <div className='countBody'>
       <div className='CountContainer'>
         <button onClick={restar} className='CounterButton SubstractButton'>-</button>
         <p className='CountNumber'>{quantity}</p>
         <button onClick={sumar} className='CounterButton'>+</button>
       </div>
       <button variant="" className='CounterButton AddToCart' onClick={() => onAdd(quantity)}> Add to cart</button>
+    </div>
     </>
   )
 }
