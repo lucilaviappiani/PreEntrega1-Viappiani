@@ -10,6 +10,7 @@ Welcome to the Develover E-commerce Website repository! This project showcases a
 - [Features](#features)
 - [Technologies Used](#technologies-used)
 - [Usage](#usage)
+- [Preview](#preview)
 
 ## Introduction
 Develover is an online marketplace for custom web development, mobile app creation, and e-commerce solutions. Our goal is to provide a seamless experience for clients looking to enhance their digital presence. The website allows users to explore our range of services, view pricing, and easily submit project details.
@@ -35,6 +36,15 @@ Develover is an online marketplace for custom web development, mobile app creati
 3. Select desired services and fill out the project details in the checkout form.
 4. Choose a payment method and submit the form.
 5. Receive an order number and confirmation.
+
+   
+## Preview
+
+Here's a quick preview of the website's navigation:
+
+![Preview](url)
+
+
 
 
 
