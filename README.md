@@ -42,7 +42,7 @@ Develover is an online marketplace for custom web development, mobile app creati
 
 Here's a quick preview of the website's navigation:
 
-![Preview](https://github.com/lucilaviappiani/ProyectoFinal-Viappiani/blob/main/preview.gif)
+![Preview](https://github.com/lucilaviappiani/ProyectoFinal-Viappiani/blob/main/PREVIEW.gif)
 
 
 
