@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect} from 'react';
+import { useContext, useState, useEffect} from 'react';
 import { Link } from 'react-router-dom'; 
 import ItemCount from './ItemCount';
 import Card from 'react-bootstrap/Card';
@@ -12,7 +12,6 @@ import Loading from "./Loading";
 const ItemDetail = ({ productos }) => {
 
 
-  //estado donde se almacenará la cantidad agregada de ese producto
   const [quantityAdded, setQuantityAdded] = useState(0)
   const [loading, setLoading] = useState(true)
 
@@ -21,7 +20,6 @@ const ItemDetail = ({ productos }) => {
     setQuantityAdded(quantity)
 
     const { id, nombre, description, price } = productos;
-
 
     const item = {
       id, nombre, description, price
@@ -42,10 +40,7 @@ const ItemDetail = ({ productos }) => {
       return <Loading/>
     }
 
-
-
-  //los mapea. Por cada iteración renderiza un nuevo componente.
-  return (
+    return (
     <>
       <div key={productos.id} className='itemDetailCard'>
 

@@ -18,25 +18,25 @@ const Checkout = () => {
   const [phone, setPhone] = useState("")
   const [paymentMethod, setPaymentMethod] = useState("Credit card"); // Por defecto, seleccionamos el primer método de pago
   const [orderId, setOrderId] = useState(null)
-  const {cart} = useContext(CartContext)
+  const { cart } = useContext(CartContext)
   const [orderSubmitted, setOrderSubmitted] = useState(false);
   const [formVisible, setFormVisible] = useState(true);
 
 
 
-  const db= getFirestore()
+  const db = getFirestore()
 
 
- const handleSubmit = (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault()
-    addDoc(orderCollection, order).then(({id}) =>
-      setOrderId(id), 
+    addDoc(orderCollection, order).then(({ id }) =>
+      setOrderId(id),
       setOrderSubmitted(true),
       setFormVisible(false))
 
-      sendOrder()
+    sendOrder()
 
-    
+
   }
 
   const order = {
@@ -52,13 +52,13 @@ const Checkout = () => {
 
   const sendOrder = () => {
     const order = {
-      buyer: {name: {name}, lastname: {lastname}, email: {email}, emailConfirmation: {emailConfirmation},phone:{phone}, paymentMethod: {paymentMethod}},
-      items: {cart},
+      buyer: { name: { name }, lastname: { lastname }, email: { email }, emailConfirmation: { emailConfirmation }, phone: { phone }, paymentMethod: { paymentMethod } },
+      items: { cart },
       total: {},
     }
     const orderCollection = collection(db, "orders")
 
-    addDoc(orderCollection, order).then(({id}) => setOrderId(id))
+    addDoc(orderCollection, order).then(({ id }) => setOrderId(id))
   }
 
   return (
@@ -77,31 +77,31 @@ const Checkout = () => {
           </Row>
           <Row className="mb-3">
 
-      <Form.Group as={Col} controlId="formGridEmail">
-        <Form.Label>Email</Form.Label>
-        <Form.Control type="email" placeholder="youremail@hotmail.com" onChange={(e)=> setEmail(e.target.value)} />
-      </Form.Group>
+            <Form.Group as={Col} controlId="formGridEmail">
+              <Form.Label>Email</Form.Label>
+              <Form.Control type="email" placeholder="youremail@hotmail.com" onChange={(e) => setEmail(e.target.value)} />
+            </Form.Group>
 
-      <Form.Group as={Col} controlId="formGridEmailConfirmation">
-        <Form.Label>Email Confirmation</Form.Label>
-        <Form.Control type="email" placeholder="youremail@hotmail.com" onChange={(e)=> setEmailConfirmation(e.target.value)} />
-      </Form.Group>
+            <Form.Group as={Col} controlId="formGridEmailConfirmation">
+              <Form.Label>Email Confirmation</Form.Label>
+              <Form.Control type="email" placeholder="youremail@hotmail.com" onChange={(e) => setEmailConfirmation(e.target.value)} />
+            </Form.Group>
 
-      <Form.Group as={Col} controlId="formGridPhone">
-        <Form.Label>Phone number</Form.Label>
-        <Form.Control type="tel" placeholder=" 54 9 11523658" onChange={(e)=> setPhone(e.target.value)}/>
-      </Form.Group>
-      </Row>
+            <Form.Group as={Col} controlId="formGridPhone">
+              <Form.Label>Phone number</Form.Label>
+              <Form.Control type="tel" placeholder=" 54 9 11523658" onChange={(e) => setPhone(e.target.value)} />
+            </Form.Group>
+          </Row>
 
-    <Row className="mb-3">
+          <Row className="mb-3">
 
-    <Form.Label>Payment method</Form.Label>
-    <Form.Select aria-label="Default select example" value={paymentMethod} onChange={(e) => setPaymentMethod(e.target.value)}>
-      <option value="Credit card">Credit card</option>
-      <option value="Debit card">Debit card</option>
-      <option value="PayPal">PayPal</option>
-    </Form.Select>
-    </Row>
+            <Form.Label>Payment method</Form.Label>
+            <Form.Select aria-label="Default select example" value={paymentMethod} onChange={(e) => setPaymentMethod(e.target.value)}>
+              <option value="Credit card">Credit card</option>
+              <option value="Debit card">Debit card</option>
+              <option value="PayPal">PayPal</option>
+            </Form.Select>
+          </Row>
           <Button variant="" className="CounterButton" type="submit">
             Submit
           </Button>
@@ -110,9 +110,9 @@ const Checkout = () => {
 
       {orderSubmitted && (
         <>
-        <h5> Order sent!</h5>
-        <p>Your order number is: {orderId}</p>
-        <Link to={"/Products"}> <Button variant="" className="CounterButton"> Back to home</Button> </Link>
+          <h5> Order sent!</h5>
+          <p>Your order number is: {orderId}</p>
+          <Link to={"/Products"}> <Button variant="" className="CounterButton"> Back to home</Button> </Link>
         </>
       )}
     </div>
