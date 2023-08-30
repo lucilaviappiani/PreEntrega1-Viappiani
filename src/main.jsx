@@ -10,7 +10,7 @@ import "./styles/Item.css";
 import "./styles/ItemDetail.css";
 import "./styles/Cart.css";
 import "./styles/Home.css";
-
+import "./styles/Loading.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 

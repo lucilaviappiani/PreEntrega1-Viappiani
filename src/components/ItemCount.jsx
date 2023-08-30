@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 
 const ItemCount = ( {onAdd} ) => {
 
@@ -9,8 +9,9 @@ const sumar =()=>{
     setQuantity(quantity+1)
 }
 const restar=()=>{
-    //aquí puedo agregar lógica para que no tome valores negativos
+  if (quantity > 1){
     setQuantity(quantity-1)
+  }
 }
 
 

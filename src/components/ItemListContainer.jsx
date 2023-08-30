@@ -19,7 +19,7 @@ const ItemListContainer = () => {
           setProductos(docs)
           setLoading(false)
       })
-    },1000)
+    },3000)
       
       }, [])
 
