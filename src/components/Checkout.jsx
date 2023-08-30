@@ -10,6 +10,7 @@ import { useContext } from 'react';
 import { Link } from 'react-router-dom';
 
 
+
 const Checkout = () => {
   const [name, setName] = useState("")
   const [lastname, setLastname] = useState("")
@@ -28,7 +29,14 @@ const Checkout = () => {
 
 
   const handleSubmit = (e) => {
-    e.preventDefault()
+    e.preventDefault();
+
+  // validaciones form
+  if (name === "" || lastname === "" || email === "" || emailConfirmation === "" || phone === "" || paymentMethod === "") {
+    alert("Please fill in all required fields.");
+    return;
+  }
+
     addDoc(orderCollection, order).then(({ id }) =>
       setOrderId(id),
       setOrderSubmitted(true),

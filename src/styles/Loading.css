@@ -38,8 +38,8 @@
       .cssload-heartL {
         width: 1em;
         height: 1em;
-        border: 1px solid rgb(252, 0, 101);
-        background-color: rgb(252, 0, 101);
+        border: 1px solid rgb(255, 117, 172);
+        background-color: rgb(255, 117, 172);
         content: '';
         position: absolute;
         display: block;
@@ -59,8 +59,8 @@
       .cssload-heartR {
         width: 1em;
         height: 1em;
-        border: 1px solid rgb(252, 0, 101);
-        background-color: rgb(252, 0, 101);
+        border: 1px solid rgb(255, 117, 172);
+        background-color: rgb(255, 117, 172);
         content: '';
         position: absolute;
         display: block;
@@ -80,8 +80,8 @@
       .cssload-square {
         width: 1em;
         height: 1em;
-        border: 1px solid rgb(252, 0, 101);
-        background-color: rgb(252, 0, 101);
+        border: 1px solid rgb(255, 117, 172);
+        background-color: rgb(255, 117, 172);
         position: relative;
         display: block;
         content: '';
