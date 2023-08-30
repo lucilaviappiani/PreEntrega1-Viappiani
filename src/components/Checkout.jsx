@@ -18,7 +18,7 @@ const Checkout = () => {
   const [phone, setPhone] = useState("")
   const [paymentMethod, setPaymentMethod] = useState("Credit card"); // Por defecto, seleccionamos el primer método de pago
   const [orderId, setOrderId] = useState(null)
-  const { cart } = useContext(CartContext)
+  const { cart, clearCart } = useContext(CartContext)
   const [orderSubmitted, setOrderSubmitted] = useState(false);
   const [formVisible, setFormVisible] = useState(true);
 
@@ -35,6 +35,7 @@ const Checkout = () => {
       setFormVisible(false))
 
     sendOrder()
+    clearCart()
 
 
   }
@@ -64,56 +65,62 @@ const Checkout = () => {
   return (
     <div>
       {formVisible && (
-        <Form onSubmit={handleSubmit}>
+        <Form onSubmit={handleSubmit} className='FormContainer'>
           <Row className="mb-3">
             <Form.Group as={Col} controlId="formGridName">
-              <Form.Label>Name</Form.Label>
+              <Form.Label className='FormLabel'>Name</Form.Label>
               <Form.Control type="text" onChange={(e) => setName(e.target.value)} />
             </Form.Group>
             <Form.Group as={Col} controlId="formGridLastname">
-              <Form.Label>Last name</Form.Label>
+              <Form.Label className='FormLabel'>Last name</Form.Label>
               <Form.Control type="text" onChange={(e) => setLastname(e.target.value)} />
             </Form.Group>
           </Row>
+          
           <Row className="mb-3">
 
             <Form.Group as={Col} controlId="formGridEmail">
-              <Form.Label>Email</Form.Label>
+              <Form.Label className='FormLabel'>Email</Form.Label>
               <Form.Control type="email" placeholder="youremail@hotmail.com" onChange={(e) => setEmail(e.target.value)} />
             </Form.Group>
 
             <Form.Group as={Col} controlId="formGridEmailConfirmation">
-              <Form.Label>Email Confirmation</Form.Label>
+              <Form.Label className='FormLabel'>Email Confirmation</Form.Label>
               <Form.Control type="email" placeholder="youremail@hotmail.com" onChange={(e) => setEmailConfirmation(e.target.value)} />
-            </Form.Group>
-
-            <Form.Group as={Col} controlId="formGridPhone">
-              <Form.Label>Phone number</Form.Label>
-              <Form.Control type="tel" placeholder=" 54 9 11523658" onChange={(e) => setPhone(e.target.value)} />
             </Form.Group>
           </Row>
 
-          <Row className="mb-3">
+          <Row>
+            <Form.Group as={Col} controlId="formGridPhone">
+              <Form.Label className='FormLabel'>Phone number</Form.Label>
+              <Form.Control type="tel" placeholder=" 54 9 11523658" onChange={(e) => setPhone(e.target.value)} />
+            </Form.Group>
 
-            <Form.Label>Payment method</Form.Label>
+            <Form.Group as={Col} controlId="formGridPay">
+            <Form.Label className='FormLabel'>Payment method</Form.Label>
             <Form.Select aria-label="Default select example" value={paymentMethod} onChange={(e) => setPaymentMethod(e.target.value)}>
               <option value="Credit card">Credit card</option>
               <option value="Debit card">Debit card</option>
               <option value="PayPal">PayPal</option>
             </Form.Select>
+            </Form.Group>
           </Row>
-          <Button variant="" className="CounterButton" type="submit">
+          
+          <div className='ButtonContainer'>
+          <Button variant="" className="CounterButton SubmitButton" type="submit">
             Submit
           </Button>
+          </div>
         </Form>
+        
       )}
 
       {orderSubmitted && (
-        <>
-          <h5> Order sent!</h5>
-          <p>Your order number is: {orderId}</p>
+        <div className='noItems'>
+          <h5 className='ItemTitle'> Order sent!</h5>
+          <p className='ItemTitle'>Your order number is: {orderId}</p>
           <Link to={"/Products"}> <Button variant="" className="CounterButton"> Back to home</Button> </Link>
-        </>
+        </div>
       )}
     </div>
   );

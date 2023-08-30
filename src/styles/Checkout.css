@@ -1,0 +1,19 @@
+.FormLabel{
+    text-align: center;
+    font-family: 'Urbanist', sans-serif;
+    font-size: 1.22rem;
+    text-transform: capitalize;
+}
+
+.FormContainer{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 100px;
+}
+
+
+.SubmitButton{
+    width: 300px;
+    height: 60px;
+}
